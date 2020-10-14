@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+<script src="//unpkg.com/vue/dist/vue.js"></script>
+<script src="//unpkg.com/element-ui@2.13.2/lib/index.js"></script>
+<div id="app">
+<div class="demo-image">
+  <div class="block" v-for="fit in fits" :key="fit">
+    <span class="demonstration">{{ fit }}</span>
+    <el-image
+      style="width: 400px; height: 400px"
+      :src="url"
+      :fit="fit"></el-image>
+  </div>
+</div>
+</div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function() {
+        return {
+        fits: ['cover'],
+        url: '../static/lugou.jpeg'
+      }
+      }
+    })
+  </script>
+</html>

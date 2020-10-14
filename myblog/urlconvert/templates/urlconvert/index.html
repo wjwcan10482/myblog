@@ -1,4 +1,43 @@
-<form action="" method="get">
-  下载链接:<input type="text" name="fname" />
-  <input type="submit" value="获取加速下载地址" />
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <style>
+  .el-select .el-input {
+    width: 130px;
+  }
+  .input-with-select .el-input-group__prepend {
+    background-color: #fff;
+  }
+</style>
+</head>
+<body>
+<script src="//unpkg.com/vue/dist/vue.js"></script>
+<script src="//unpkg.com/element-ui@2.13.2/lib/index.js"></script>
+<div id="app">
+<div>
+  <el-row>
+    <el-col :span="12"><el-input placeholder="请输入需要转换的链接" autosize clearable v-model="input1"></el-col>
+    <el-col :span="12"></el-input><el-button type="primary" icon="el-icon-search">获取加速链接</el-button></el-col>
+
+  </el-row>
+</div>
+</div>
+
+
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          input1: '',
+      }
+      }
+    })
+  </script>
+</html>
+
+
