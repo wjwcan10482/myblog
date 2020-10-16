@@ -12,30 +12,54 @@
     background-color: #fff;
   }
 </style>
+
 </head>
 <body>
 <script src="//unpkg.com/vue/dist/vue.js"></script>
 <script src="//unpkg.com/element-ui@2.13.2/lib/index.js"></script>
+<script src="//unpkg.com/axios/dist/axios.min.js"></script>
 <div id="app">
-<div>
-  <el-row>
-    <el-col :span="12"><el-input placeholder="请输入需要转换的链接" autosize clearable v-model="input1"></el-col>
-    <el-col :span="12"></el-input><el-button type="primary" icon="el-icon-search">获取加速链接</el-button></el-col>
-
-  </el-row>
+<el-form ref="form" :model="form" label-width="auto" label-position="left">
+  <el-form-item>
+    <el-input v-model="form.name" label-width="auto" label="输入地址"></el-input>
+  </el-form-item>
+  <el-form-item>
+    <el-button type="primary" @click="onSubmit()">获取加速地址</el-button>
+  </el-form-item>
+</el-form>
 </div>
-</div>
-
-
-
   <script>
     new Vue({
       el: '#app',
       data: function() {
         return {
-          input1: '',
+          form: {
+            name: ''
+          }
+        }
+      },
+      methods: {
+        onSubmit: function () {
+          console.log(this.form);
+          axios.post('convert/',this.form.name)
+          // axios.post('https://www.runoob.com/try/ajax/demo_axios_post.php')
+          // .then(function (response) {console.log(response);console.log("YES")})
+          .then( response => (this.form.name = response.data))
+          .catch(function (error) { // 请求失败处理
+              console.log(error);console.log("NO");
+          });
+          //         .post("convert/",this.form)
+          //     .then(data => {
+          //         alert(this.form.name)
+          //             }
+          //     )
+          //     .catch(errors => {
+          //         console.log(errors);
+          //     })
+          // console.log("Test")
+        }
       }
-      }
+
     })
   </script>
 </html>

@@ -24,8 +24,8 @@ SECRET_KEY = 'x002#@u6z43x&(jn3e%0^06d^9vf2f=^7csjv4eb3p7i5t@#1y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['www.shareyou.wang','127.0.0.1']
+APPEND_SLASH = False
+ALLOWED_HOSTS = ['127.0.0.1','10.51.1.171','test.com']
 
 
 # Application definition
@@ -44,10 +44,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
