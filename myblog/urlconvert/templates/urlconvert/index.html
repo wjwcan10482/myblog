@@ -44,8 +44,8 @@
           axios.post('convert/',this.form.name)
           // axios.post('https://www.runoob.com/try/ajax/demo_axios_post.php')
           // .then(function (response) {console.log(response);console.log("YES")})
-          // .then(response => (this.form.name = response.data)
-          .then(response => (this.form.name = "123"))
+          .then(response => (this.form.name = response.data)
+          // .then(response => (this.form.name = "123"))
           .catch(function (error) { // 请求失败处理
               console.log(error);console.log("NO");
           });
