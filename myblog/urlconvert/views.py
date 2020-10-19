@@ -17,7 +17,7 @@ def convert(request):
             r = requests.get(sourceurl)
             with open("/usr/share/nginx/html/soft/"+sourcesoftname, "wb") as code:
                 code.write(r.content)
-            return HttpResponse("POST OK!!!")
+            return HttpResponse("http://www.shareyou.wang/soft/"+sourcesoftname)
         else:
             print("POST Failed!!!!!!!")
             return HttpResponse("POST Failed!!!!!!!")
